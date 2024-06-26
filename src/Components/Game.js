@@ -1,4 +1,5 @@
 import useStore from "../store.js";
+import { useEffect } from "react";
 import GameBlock from './GameBlock'
 
 function Game() {
@@ -6,14 +7,17 @@ function Game() {
   const {terminal, winner, winningBlocks} = gameNode.staticEvaluation()
   const movingPlayer = gameNode.movingPlayer()
 
-  if(!terminal){
-    if(players[movingPlayer] === 'cpu'){
-      moveNode(gameNode.bestMove().move)
+  
+  useEffect(()=>{
+    if(!terminal){
+      if(players[movingPlayer] === 'cpu'){
+        moveNode(gameNode.bestMove().move)
+      }
     }
-  }
-  else{
-    console.log('FINISHED')
-  }
+    else{
+      console.log('FINISHED')
+    }
+  }, [gameNode, movingPlayer, terminal])
   
   return (
     <div className="Game">
