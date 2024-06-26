@@ -1,0 +1,96 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Merrant, sans-serif;
+  outline: none;
+  border: none
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 100vw;
+  height: 100vh
+}
+
+.ActualGame {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto auto auto
+}
+
+.Block {
+  border: 2px gray solid;
+  height: 75px;
+  width: 75px;
+  transition: .2s ease all
+}
+
+.Options {
+  border: 2px rgb(195, 195, 195) solid;
+  display: grid;
+  padding: .5rem;
+  border-radius: 10px;
+  grid-gap: .2rem;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "Player1 Player2" "Player1 Player2" "SVG SVG" "SwapButton ResetButton" "PlayerOptions PlayerOptions"
+}
+
+.Options h3 {
+  text-align: center;
+}
+
+.Player1Heading{
+  grid-area: Player1;
+}
+.Player2Heading{
+  grid-area: Player2;
+}
+
+.SVGContainer {
+  grid-area: SVG;
+  position: relative;
+  height: 50px;
+  width: 150px;
+}
+
+.SVGContainer svg {
+  position: absolute;
+  height: 100%;
+  transition: .2s ease all;
+}
+
+.SwapButton,
+.ResetButton {
+  font-size: 1rem;
+  padding: .5rem;
+  background: gray;
+  color: white;
+  border-radius: 10px;
+  transition: .2s all ease;
+  cursor: pointer
+}
+
+.SwapButton {
+  grid-area: SwapButton
+}
+
+.ResetButton {
+  grid-area: ResetButton
+}
+
+.SwapButton:hover,
+.ResetButton:hover {
+  background: rgb(51, 51, 51)
+}
+
+.PlayerOptions {  
+  grid-area: PlayerOptions;
+  background: rgb(211, 211, 211);
+  padding: .4rem;
+  border-radius: 10px;
+  text-align: center
+}
