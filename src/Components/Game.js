@@ -6,18 +6,22 @@ function Game() {
   const {gameNode, players, moveNode} = useStore()
   const {terminal, winner, winningBlocks} = gameNode.staticEvaluation()
   const movingPlayer = gameNode.movingPlayer()
-
+  console.log(terminal)
   
   useEffect(()=>{
     if(!terminal){
+      console.log('Came here')
       if(players[movingPlayer] === 'cpu'){
-        moveNode(gameNode.bestMove().move)
+        console.log('Time to Move')
+        setTimeout(()=>{
+          moveNode(gameNode.bestMove().move)
+        }, 100)
       }
     }
     else{
       console.log('FINISHED')
     }
-  }, [gameNode, movingPlayer, terminal])
+  }, [gameNode, movingPlayer, terminal, players])
   
   return (
     <div className="Game">

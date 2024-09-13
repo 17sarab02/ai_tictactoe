@@ -5,6 +5,7 @@ function Options() {
 
   const triggerChange = (e)=>{
     const objectToInject = JSON.parse(e.target.value)
+    console.log(objectToInject)
     setPlayers(objectToInject)
   }
   return (
